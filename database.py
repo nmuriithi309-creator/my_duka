@@ -7,7 +7,7 @@ conn = psycopg2.connect(host='localhost', port=5432, user='naomimuriithi', dbnam
 cur = conn.cursor()
 
 
-# ---------- PRODUCTS ----------
+#PRODUCTS 
 
 def get_products():
     cur.execute("select * from products")
@@ -27,7 +27,7 @@ def insert_products(prod_details):
     return new_id
 
 
-# ---------- STOCK ----------
+#STOCK
 
 def get_stock():
     cur.execute("select * from stock")
@@ -41,7 +41,7 @@ def insert_stock(stock_details):
     conn.commit()
 
 
-# ---------- SALES ----------
+#SALES
 
 def get_sales():
     cur.execute("select * from sales")
@@ -55,7 +55,7 @@ def insert_sales(sales_details):
     conn.commit()
 
 
-# ---------- REPORTS ----------
+#REPORTS
 
 def get_sales_per_product():
     cur.execute("""
@@ -109,33 +109,28 @@ def get_profit_per_day():
     return profit_per_day
 
 
-# ---------- ADD COSMETICS DATA ----------
-# Run this section ONCE, then put # in front of every line in it,
-# otherwise the same products, stock and sales get added again on every run.
-
+# COSMETICS DATA
 # (name, buying_price, selling_price) in KSh
-lipstick = insert_products(('Matte lipstick', 350, 600))
-foundation = insert_products(('Liquid foundation', 900, 1500))
-mascara = insert_products(('Waterproof mascara', 450, 800))
-lotion = insert_products(('Shea body lotion', 300, 550))
-nail_polish = insert_products(('Nail polish', 120, 250))
+#lipstick = insert_products(('Matte lipstick', 350, 600))
+#foundation = insert_products(('Liquid foundation', 900, 1500))
+#mascara = insert_products(('Waterproof mascara', 450, 800))
+#lotion = insert_products(('Shea body lotion', 300, 550))
+#nail_polish = insert_products(('Nail polish', 120, 250))
 
 # (product id, stock quantity)
-insert_stock((lipstick, 60))
-insert_stock((foundation, 25))
-insert_stock((mascara, 40))
-insert_stock((lotion, 50))
-insert_stock((nail_polish, 80))
+# insert_stock((lipstick, 60))
+# insert_stock((foundation, 25))
+# insert_stock((mascara, 40))
+# insert_stock((lotion, 50))
+# insert_stock((nail_polish, 80))
 
 # (product id, quantity sold)
-insert_sales((lipstick, 5))
-insert_sales((foundation, 2))
-insert_sales((mascara, 3))
-insert_sales((lotion, 4))
-insert_sales((nail_polish, 6))
+# insert_sales((lipstick, 5))
+# insert_sales((foundation, 2))
+# insert_sales((mascara, 3))
+# insert_sales((lotion, 4))
+# insert_sales((nail_polish, 6))
 
-
-# ---------- SHOW EVERYTHING ----------
 
 print("Products:", get_products())
 print("Stock:", get_stock())
