@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}Products Page{% endblock %}
+{% block content %}
+
+<div>
+
+    <p>My product Page</p>
+
+    <div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add product
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Adding a product</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form method="post" action="/add_products">
+                            <div class="mb-3">
+                                <label for="productName" class="form-label">Product name</label>
+                                <input type="text" name="p_name" class="form-control" id="productName"
+                                    maxlength="100" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="buyingPrice" class="form-label">Buying price</label>
+                                <input type="number" name="b_price" class="form-control" id="buyingPrice"
+                                    step="0.01" min="0" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="sellingPrice" class="form-label">Selling price</label>
+                                <input type="number" name="s_price" class="form-control" id="sellingPrice"
+                                    step="0.01" min="0" required>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Add products</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table id="example" class="display">
+            <thead>
+                <tr>
+                    <th>Products ID</th>
+                    <th>Product Name</th>
+                    <th>Buying price</th>
+                    <th>Selling price</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products_data %}
+                <tr>
+                    <td>{{ product[0] }}</td>
+                    <td>{{ product[1] }}</td>
+                    <td>{{ product[2] }}</td>
+                    <td>{{ product[3] }}</td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+.home{
+    color: red;
+}
+
+/* Radiant gradient for the navbar and footer */
+.bg-radiant {
+    background: linear-gradient(90deg, #e20f94);
+}
+
+/* Same colours, flowing the other way for the footer */
+.bg-radiant-reverse {
+    background: linear-gradient(90deg,#e20f94);
+}
+
+/* Navbar links: bright white, with a soft glow on hover */
+.bg-radiant .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bg-radiant .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}

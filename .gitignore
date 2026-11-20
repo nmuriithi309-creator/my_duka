@@ -1,0 +1,13 @@
+# private settings (database password)
+config.py
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# virtual environments
+venv/
+.venv/
+
+# macOS
+.DS_Store
